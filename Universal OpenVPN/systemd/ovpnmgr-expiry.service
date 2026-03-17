@@ -1,0 +1,10 @@
+[Unit]
+Description=OpenVPN Manager Expiry Worker
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/ovpnmgr
+Environment=PYTHONPATH=/opt/ovpnmgr/src
+ExecStart=/opt/ovpnmgr/venv/bin/python -m ovpnmgr.expiry_worker
+User=root
